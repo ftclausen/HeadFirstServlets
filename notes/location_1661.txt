@@ -1,0 +1,2 @@
+1. JSP = view; POJO = model; Servlet = controller
+2. M = movel, v = view, c = contoller
