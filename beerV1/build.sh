@@ -9,7 +9,7 @@ proj_name=$(basename $PWD)
 if [[ "$HOSTNAME" == "fapple" ]]; then
     servlet_api="/usr/local/Cellar/tomcat/7.0.37/libexec/lib/servlet-api.jar"
 elif [[ "$HOSTNAME" == "lem" ]]; then
-    servlet_api="somewhere"
+    servlet_api="/usr/share/tomcat7/lib/servlet-api.jar"
 else
     echo "Run this on fapple or lem"
     exit 1

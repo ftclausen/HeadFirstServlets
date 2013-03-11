@@ -10,16 +10,18 @@ public class BeerSelect extends HttpServlet {
     public void doPost(HttpServletRequest request,
                     HttpServletResponse response)
                     throws IOException, ServletException {
-        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("Beer Selection Advice<br><br>");
         String c = request.getParameter("color");
         
         BeerExpert beerTips = new BeerExpert();
         List<String> brands = beerTips.getBrands(c);
 
-        for (String s: brands) {
-            out.println("* " + s + "<br>");
-        }
+        request.setAttribute("brands", brands);
+        RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+        view.forward(request, response);
+
+        //for (String s: brands) {
+        //   out.println("* " + s + "<br>");
+        //}
     }
 }
