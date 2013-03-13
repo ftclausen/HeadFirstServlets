@@ -24,4 +24,8 @@ public class BeerSelect extends HttpServlet {
         //   out.println("* " + s + "<br>");
         //}
     }
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                    throws IOException, ServletException {
+       request.getRequestDispatcher("error.jsp").forward(request, response);
+    }
 }

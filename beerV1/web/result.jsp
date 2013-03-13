@@ -11,6 +11,13 @@
    for (String s: brands) {
       out.println("* " + s + "<br>");
    }
+  
+   out.println("<br>"); 
+   out.println("DEBUG: Remote port is : " + request.getRemotePort());
+   out.println("<br>"); 
+   out.println("DEBUG: User agent is : " + request.getHeader("User-Agent"));
+   out.println("<br>"); 
+   out.println("DEBUG: Local port is : " + request.getLocalPort());
 %>
 
 </body>
