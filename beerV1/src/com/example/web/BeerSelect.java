@@ -24,4 +24,8 @@ public class BeerSelect extends HttpServlet {
         //   out.println("* " + s + "<br>");
         //}
     }
+    
+    public void init() {
+        System.out.println("DEBUG: Beer servlet initialising. Yo.");
+    }
 }
