@@ -3,7 +3,11 @@
 # TODO: Use maven or ant once JSP and servlets basics are done
 # javac -cp /usr/local/Cellar/tomcat/7.0.37/libexec/lib/servlet-api.jar  -d classes/com/example/web src/com/example/web/BeerSelect.java
 
-source_files=("src/com/example/model/BeerExpert.java src/com/example/web/BeerSelect.java")
+if [[ ! -d src ]]; then
+    echo "ERROR: Please run me from the project base directory."
+    exit 1
+fi
+
 proj_name=$(basename $PWD)
 
 if [[ "$HOSTNAME" == "fapple" ]]; then
@@ -23,7 +27,7 @@ src="src"
 rm -rf $classes
 mkdir $classes
 
-for file in $source_files; do
+find src/ -name '*.java' | while read -r file; do
     echo "JAVAC: $file"
     if [[ ! "$file" =~ ^src ]]; then
         echo "ERROR: Src files must be in the \"src\" dir. $file is incorrect"
@@ -46,5 +50,7 @@ fi
 rm -rf webapps/$proj_name
 mkdir -p webapps/$proj_name/WEB-INF/
 cp -v etc/web.xml webapps/$proj_name/WEB-INF/web.xml
-cp -v web/* webapps/$proj_name/
+if (( $(ls web/* 2>/dev/null | wc -l | awk '{print $1}') > 0 )); then
+    cp -v web/* webapps/$proj_name/
+fi
 cp -rv classes webapps/$proj_name/WEB-INF/
