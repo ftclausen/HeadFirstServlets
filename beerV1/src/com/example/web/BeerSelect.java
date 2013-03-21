@@ -16,6 +16,9 @@ public class BeerSelect extends HttpServlet {
         BeerExpert beerTips = new BeerExpert();
         List<String> brands = beerTips.getBrands(c);
 
+
+        // Set our special header
+        response.addHeader("fred-clausen", "is-awesome");
         request.setAttribute("brands", brands);
         RequestDispatcher view = request.getRequestDispatcher("result.jsp");
         view.forward(request, response);
@@ -27,5 +30,10 @@ public class BeerSelect extends HttpServlet {
     
     public void init() {
         System.out.println("DEBUG: Beer servlet initialising. Yo.");
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                    throws IOException, ServletException {
+       request.getRequestDispatcher("error.jsp").forward(request, response);
     }
 }
