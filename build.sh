@@ -23,6 +23,7 @@ echo "Starting build and deploy for $proj_name"
 
 classes="classes"
 src="src"
+webapps="../webapps"
 
 rm -rf $classes
 mkdir $classes
@@ -42,15 +43,15 @@ find src/ -name '*.java' | while read -r file; do
     fi
 done
 
-if [[ ! -d "webapps" ]]; then
+if [[ ! -d "$webapps" ]]; then
     echo "ERROR: Tomcat symlink not found or invalid"
     exit 1
 fi
 
-rm -rf webapps/$proj_name
-mkdir -p webapps/$proj_name/WEB-INF/
-cp -v etc/web.xml webapps/$proj_name/WEB-INF/web.xml
+rm -rf $webapps/$proj_name
+mkdir -p $webapps/$proj_name/WEB-INF/
+cp -v etc/web.xml $webapps/$proj_name/WEB-INF/web.xml
 if (( $(ls web/* 2>/dev/null | wc -l | awk '{print $1}') > 0 )); then
-    cp -v web/* webapps/$proj_name/
+    cp -v web/* $webapps/$proj_name/
 fi
-cp -rv classes webapps/$proj_name/WEB-INF/
+cp -rv classes $webapps/$proj_name/WEB-INF/

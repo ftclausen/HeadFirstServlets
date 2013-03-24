@@ -7,18 +7,20 @@
     <servlet>
         <servlet-name>BeerParamTests</servlet-name>
         <servlet-class>com.example.TestInitParams</servlet-class>
-        <init-param>
-            <param-name>adminEmail</param-name>
-            <param-value>ftclausen@gmail.com</param-value>
-        </init-param>
-        <init-param>
-            <param-name>mainEmail</param-name>
-            <param-value>ftclausen@gmail.com</param-value>
-        </init-param>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>BeerParamTests</servlet-name>
         <url-pattern>/Tester.do</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>ftclausen@gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mainEmail</param-name>
+        <param-value>ftclausen@gmail.com</param-value>
+    </context-param>
+
 </web-app>
