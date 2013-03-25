@@ -1,0 +1,7 @@
+* You want to know if an attribute in a web app context 
+  has been added, removed or replaced : ServletContextAttributeListener OK
+* Wanna know active sessions : HttpSessionListener OK 
+* Wanna know each time a request comes in : ServletRequestListener OK
+* Wanna know when a request attribute has been added or changed/removed : ServletRequestAttributeListener OK
+* Wanna know when objects are bound or removed from sesh : HttpSessionBindingListener OK 
+* Wanna know when sesh attr. has been added, removed or replaced : HttpSessionAttributeListener OK
