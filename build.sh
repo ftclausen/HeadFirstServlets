@@ -28,20 +28,25 @@ webapps="../webapps"
 rm -rf $classes
 mkdir $classes
 
-find src/ -name '*.java' | while read -r file; do
-    echo "JAVAC: $file"
-    if [[ ! "$file" =~ ^src ]]; then
-        echo "ERROR: Src files must be in the \"src\" dir. $file is incorrect"
-        exit 1
-    fi 
-    javac -cp $servlet_api:classes:. -d $classes $file
-    if (( $? != 0 )); then
-        echo "ERROR: Could not build $file"
-        echo "Command line was : "
-        echo "javac -cp $servlet_api:classes:. -d $classes $file"
-        exit 1
-    fi
-done
+if [[ -f "deps.txt" ]]; then
+    echo "DEBUG: Using dependencies specified in deps.txt"
+    files=$(cat deps.txt)
+else
+    files=$(find src/ -name '*.java')
+fi
+
+echo "JAVAC: $files"
+if [[ ! "$files" =~ ^src ]]; then
+    echo "ERROR: Src files must be in the \"src\" dir. $file is incorrect"
+    exit 1
+fi 
+javac -cp $servlet_api:classes:. -d $classes $files
+if (( $? != 0 )); then
+    echo "ERROR: Could not build $files"
+    echo "Command line was : "
+    echo "javac -cp $servlet_api:classes:. -d $classes $files"
+    exit 1
+fi
 
 if [[ ! -d "$webapps" ]]; then
     echo "ERROR: Tomcat symlink not found or invalid"
