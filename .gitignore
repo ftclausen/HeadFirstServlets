@@ -7,3 +7,7 @@
 
 # Editor backups
 .*.swp
+
+build
+dist
+build.properties
