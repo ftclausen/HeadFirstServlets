@@ -1,0 +1,10 @@
+The eight listeners
+
+* javax.servlet.ServletContextAttributeListener - webapp context added, removed or replaced
+* javax.servlet.http.HttpSessionListener - Used if, for e.g., when you want to know how many concurrent users there are
+* javax.servlet.ServletRequestListener - You want to know each time a request comes in
+* javax.servlet.ServletRequestAttributeListener - You want to know when a request attribute has been added, removed or replaced
+* javax.servlet.HttpSessionBindingListener - When attribute class instantiations needs to be notified when one of their kin is bound or removed
+* javax.servlet.HttpSessionAttributeListener - Wanna know when a session attribute has been added, removed or replaced.
+* javax.servlet.ServletContextEvent - Wanna know when a whole context or created or destroyed
+* javax.servlet.http.HttpSessionActivationListener - Attribute class instantiations want to know when moved around clustered JVMs
