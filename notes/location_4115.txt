@@ -1,0 +1,6 @@
+                 Accessibility                Scope                          What is it good for
+Context          Everyone                     App deployment duration        DB init params; app wide settings
+HttpSession      Current Session              Current session lifetime       Session specific info e.g. Shopping cart
+Request          Current Request              Current request lifetime       Stats
+
+

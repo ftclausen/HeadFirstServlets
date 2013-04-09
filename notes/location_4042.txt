@@ -1,0 +1,20 @@
+Remembering the listeners
+
+* Attribute Listeners
+** ServletContextAttributeListener
+*** [DO Methods]
+** ServletRequestAttributeListener
+** HttpSessionAttributeListener
+
+* Other lifecycle listeners
+** HttpSessionListener
+** ServletRequestListener
+** HttpSessionBindingListener
+** ServletContextEvent
+
+* Session lifecycle events
+** bound and unbound 
+* Requst lifecycle event
+** 
+* ServletContext events
+** Initialised and destroyed
