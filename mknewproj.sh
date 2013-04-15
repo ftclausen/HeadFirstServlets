@@ -22,17 +22,18 @@ sanity_check() {
         fi
        
         os=$(uname -s) 
-        if [[ "$CATALINA_HOME" != "" ]]; then
+        if [[ "$CATALINA_HOME" == "" ]]; then
             if [[ $os == "Linux" ]]; then
-                if [[ -d "/usr/share/tomcat7/lib" ]]; then
-                    catalina_home="/usr/share/tomcat7"
-                else
-                    echo "Can't automatically determine CATALINA_HOME, please set CATALINA_HOME manually"
-                    exit 1
-                fi
+                catalina_home="/usr/share/tomcat7/lib"
             elif [[ $os == "Darwin" ]]; then
-                echo "TODO: Add darwin support"
-                exit 0
+                catalina_home="/usr/local/Cellar/tomcat/7.0.37/libexec/webapps"
+            else
+                echo "Cannot determine CATALINA_HOME, please set CATALINA_HOME manually"
+                exit 1
+            fi
+            if [[ ! -d "$catalina_home" ]]; then
+                echo "CATALINA_HOME at $catalina_home does not exist. Please check or set manually."
+                exit 1
             fi
         else
             echo "Using environmentally set CATALINA_HOME"
@@ -51,8 +52,8 @@ setup_dir() {
 
         for i in $template_files; do
             echo "Setting up $i"
-            echo perl -p -i -e "s/@@APP_NAME@@/$newproj/" $i
-            echo perl -p -i -e "s/@@CATALINA_HOME@@/$catalina_home/" $i
+            perl -p -i -e "s#\@\@APP_NAME\@\@#$newproj#" $newproj/$i
+            perl -p -i -e "s#\@\@CATALINA_HOME\@\@#$catalina_home#" $newproj/$i
         done
 }
 
@@ -60,5 +61,5 @@ setup_dir() {
 # Main
 #
 
-sanity_check
+sanity_check $@
 setup_dir
