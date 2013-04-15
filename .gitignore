@@ -11,3 +11,5 @@
 build
 dist
 build.properties
+
+.DS_Store
