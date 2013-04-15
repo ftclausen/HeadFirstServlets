@@ -1,0 +1,14 @@
+Attribute scopes
+
+* Context
+* Request
+* Session
+
+have the same API methods
+
+* Object getAttribute(String name)
+* void setAttribute(Sring name, Object value)
+* void removeAttribute(String name)
+* Enumeration getAttributeNames()
+
+*** Only request attributes and local variables are thread-safe ***

@@ -1,0 +1,7 @@
+getCreationTime() - Time in milliseconds since 1970 when the session was created
+getLastAccessedTime() - Last time the sessions was accessed in some way
+setMaxInactiveInterval() - Set the session timeout value 
+getMaxInactiveInterval() - How long is the session timeout?
+invalidate() - Destroy the session
+
+NOTE - Timeouts in the DD are in MINUTES!

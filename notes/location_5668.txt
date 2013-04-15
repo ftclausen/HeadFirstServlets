@@ -1,0 +1,43 @@
+DD Magnets
+==========
+
+<web-app ...>
+            <session-config>
+                <max-inactive-interval>1200</max-inactive-interval>
+                <session-timeout>20</session-timeout>
+            </session-config>
+</web-app>
+
+Servlet
+=======
+
+public void doGet(HttpServletRequest request, HttpServletResponse response) 
+        throws IOException {
+    HttpSession session = req.getSession();
+    session.setMaxInactiveInterval(1200);
+}
+
+Think like a container
+======================
+
+1. First Invocation
+
+foo is undefined (IllegalStateException)
+
+1. Second Invocation
+
+foo is undefined (IllegalStateException)
+
+2. First Invocation
+
+Prints "This is a new session." WRONG
+Actual - IllegalStateException
+
+Set inactive is in millis so setting it to 0 makes it timeout immediately
+
+2. Second Invocation
+Actual - IllegalStateException
+
+Prints "Welcome back!" WRONG
+
+Set inactive is in millis so setting it to 10 makes it timeout immediately
