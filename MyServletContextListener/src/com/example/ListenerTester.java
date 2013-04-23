@@ -5,15 +5,18 @@ import javax.servlet.http.*;
 import java.io.*;
 
 public class ListenerTester extends HttpServlet {
+
     public void doGet (HttpServletRequest request, HttpServletResponse response) 
                 throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
     
+        Dog dog = (Dog) getServletContext().getAttribute("dog");
         HttpSession session = request.getSession();
         session.setAttribute("foo", "42");
+        session.setAttribute("dog", dog);
         // session.setMaxInactiveInterval(3600);
-
+    
         if (session.isNew()) {
             out.println("<h3>This is a new session (or session expired). Welcome new user</h3>");
         } else {
@@ -27,7 +30,7 @@ public class ListenerTester extends HttpServlet {
 
         out.println("Sesssion last accessed = " + sessionLastAccessed + "<br>");
         out.println("Sesssion maxInactive = " + sessionMaxInactive + "<br>");
-        int hardTimeout = 10;
+        int hardTimeout = 120;
         long remaining = (hardTimeout * 1000) - (currentTime - sessionCreated);
         out.println("Remaining time to hard expiration = " + remaining / 1000);
         if (remaining <= 0) {
@@ -37,7 +40,6 @@ public class ListenerTester extends HttpServlet {
         out.println("<hr>");
         out.println("Testing context attributes set by listener. Right now. Right here<br>");
 
-        Dog dog = (Dog) getServletContext().getAttribute("dog");
         out.println("Our dog has breed " + dog.getBreed());
         out.println("Testing change");
     }
