@@ -11,10 +11,10 @@ template_files=("build.properties")
 
 sanity_check() {
         if (( $# != 1 )); then
-            echo "Usage: $0 new_project_name"
+            echo "Usage: $0 project_name"
             exit 1
         fi
-        newproj=$1
+        proj=$1
 
         if [[ ! -d $template_proj ]]; then
             echo "ERROR: Cannot open template dir at $template_proj"
@@ -45,16 +45,16 @@ sanity_check() {
 }
 
 
-setup_dir() {
-        echo "Initialising new project directory : $newproj"
-        cp -r $template_proj $newproj
-        newproj=$(basename $newproj)
-
+setup_build_props() {
+        echo "Initialising new build.properties for $proj"
+        cp -v "$template_proj/build.properties" "$proj/build.properties"
+        proj=$(basename $proj)
         for i in $template_files; do
             echo "Setting up $i"
-            perl -p -i -e "s#\@\@APP_NAME\@\@#$newproj#" $newproj/$i
-            perl -p -i -e "s#\@\@CATALINA_HOME\@\@#$catalina_home#" $newproj/$i
+            perl -p -i -e "s#\@\@APP_NAME\@\@#$proj#" $proj/$i
+            perl -p -i -e "s#\@\@CATALINA_HOME\@\@#$catalina_home#" $proj/$i
         done
+        echo "Done"
 }
 
 #
@@ -62,4 +62,4 @@ setup_dir() {
 #
 
 sanity_check $@
-setup_dir
+setup_build_props
