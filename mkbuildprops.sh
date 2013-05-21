@@ -6,8 +6,6 @@
 #   or <MACLOCATION> for OS X (default Cellar install)
 
 template_proj="TEMPLATE"
-# Which files have place holders
-template_files=("build.properties")
 
 sanity_check() {
         if (( $# != 1 )); then
@@ -47,13 +45,11 @@ sanity_check() {
 
 setup_build_props() {
         echo "Initialising new build.properties for $proj"
-        cp -v "$template_proj/build.properties" "$proj/build.properties"
+        cp -v "$template_proj/build.properties.template" "$proj/build.properties"
         proj=$(basename $proj)
-        for i in $template_files; do
-            echo "Setting up $i"
-            perl -p -i -e "s#\@\@APP_NAME\@\@#$proj#" $proj/$i
-            perl -p -i -e "s#\@\@CATALINA_HOME\@\@#$catalina_home#" $proj/$i
-        done
+        echo "Setting up $i"
+        perl -p -i -e "s#\@\@APP_NAME\@\@#$proj#" "$proj/build.properties"
+        perl -p -i -e "s#\@\@CATALINA_HOME\@\@#$catalina_home#" "$proj/build.properties"
         echo "Done"
 }
 
