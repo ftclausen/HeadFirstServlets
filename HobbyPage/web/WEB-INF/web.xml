@@ -9,6 +9,15 @@
         <servlet-class>com.example.HobbyController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>cohorts</servlet-name>
+        <jsp-file>/cohorts.jsp</jsp-file>
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>test@example.com</param-value>
+        </init-param>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>HobbyPage.do</servlet-name>
         <url-pattern>/HobbyPage.do</url-pattern>
