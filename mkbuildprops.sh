@@ -22,7 +22,7 @@ sanity_check() {
         os=$(uname -s) 
         if [[ "$CATALINA_HOME" == "" ]]; then
             if [[ $os == "Linux" ]]; then
-                catalina_home="/usr/share/tomcat7/lib"
+                catalina_home="/usr/share/tomcat7"
             elif [[ $os == "Darwin" ]]; then
                 catalina_home="/usr/local/Cellar/tomcat/7.0.37/libexec"
             else
