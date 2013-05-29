@@ -7,7 +7,7 @@
 
 template_proj="TEMPLATE"
 # Which files have place holders
-template_files=("build.properties")
+template_files=("build.properties.template")
 
 sanity_check() {
         if (( $# != 1 )); then
@@ -46,15 +46,8 @@ sanity_check() {
 
 
 setup_dir() {
-        echo "Initialising new project directory : $newproj"
         cp -r $template_proj $newproj
-        newproj=$(basename $newproj)
-
-        for i in $template_files; do
-            echo "Setting up $i"
-            perl -p -i -e "s#\@\@APP_NAME\@\@#$newproj#" $newproj/$i
-            perl -p -i -e "s#\@\@CATALINA_HOME\@\@#$catalina_home#" $newproj/$i
-        done
+        ./mkbuildprops.sh $newproj
 }
 
 #
