@@ -1,6 +1,6 @@
 <html><body>
 
-<jsp:useBean id="person" class="com.example.Person" scope="request" >
+<jsp:useBean id="person" class="com.example.Employee" type="com.example.Person" scope="request" >
     <jsp:setProperty name="person" property="name" value="fred" />
 </jsp:useBean>
 
