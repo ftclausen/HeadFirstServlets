@@ -1,9 +1,7 @@
 <html><body>
 
-<jsp:useBean id="person" class="com.example.Employee" type="com.example.Person" scope="request" >
-    <jsp:setProperty name="person" property="name" value="fred" />
-</jsp:useBean>
-
-Person's name is actually : <jsp:getProperty name="person" property="name"/>
-
+As dollar person.name : ${person.name} <br>
+As person.name with square brackets : ${person["name"]} <br>
+Some ambient music would be ${musicMap["Ambient"]}<br>
+The genre is currently set to ${genres["0"]} which means we get music by ${musicMap[genres["0"]]}<br>
 </body></html>
