@@ -1,0 +1,4 @@
+1) ${musicList[numbers[0]]} -> ${musicList[1]} -> "Tahiti 80"
+2) ${musicList[numbers[0] + 1]} -> $musicList[2] -> "BT"
+3) ${musicList[numbers["2"]] -> ERROR (not a hash) : WRONG - "Frou Frou" - Can reference index with quotes.
+4) ${musicList[numbers[numbers[1]]]} -> ${musicList[numbers[2]]} -> ${musicList[3]} -> "Frou Frou"

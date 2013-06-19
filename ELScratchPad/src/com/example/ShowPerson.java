@@ -18,7 +18,7 @@ public class ShowPerson extends HttpServlet {
             p.setName(submittedName);
         }
 
-        Map musicMap = new HashMap();
+        Map<String, String> musicMap = new HashMap();
         musicMap.put("Ambient", "Zero 7");
         musicMap.put("Surf", "Tahiti 80");
         request.setAttribute("musicMap", musicMap);
@@ -26,6 +26,20 @@ public class ShowPerson extends HttpServlet {
         request.setAttribute("genres", genreList);
         request.setAttribute("person", p);
 
+        Person p2 = new Person();
+        p2.setName("Leelu");
+        Dog d = new Dog();
+        d.setName("Clyde");
+        Toy t1 = new Toy();
+        t1.setName("stick");
+        Toy t2 = new Toy();
+        t2.setName("neighbour's cat");
+        Toy t3 = new Toy();
+        t3.setName("Barbie Doll's head");
+        d.setToys(new Toy[] { t1, t2, t3 });
+        p2.setDog(d);
+        request.setAttribute("person", p2);
+        
         RequestDispatcher view = request.getRequestDispatcher("ELTest.jsp");
         view.forward(request, response);
     }
