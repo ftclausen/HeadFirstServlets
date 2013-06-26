@@ -7,7 +7,16 @@ The genre is currently set to ${genres["0"]} which means we get music by ${music
 
 <br>
 ${person["name"]}'s dog ${person.dog.name} toys are: ${person.dog.toys["0"].name}, ${person.dog.toys["1"].name} and ${person["dog"]["toys"]["2"]["name"]}
+<br>
 
 
+First food is ${paramValues.food[0]}<br>
+Second food is ${paramValues.food[1]}<br>
+
+Requested host is ${header.host}<br>
+
+Request method is ${pageContext.request.method}<br>
+
+Init (context) param magic is ${initParam.magic}<br>
 <br>
 </body></html>
