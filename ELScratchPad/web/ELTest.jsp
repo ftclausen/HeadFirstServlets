@@ -1,3 +1,5 @@
+<%@ taglib prefix="mine" uri="DiceFunctions"%>
+
 <html><body>
 
 As dollar person.name : ${person.name} <br>
@@ -18,5 +20,7 @@ Requested host is ${header.host}<br>
 Request method is ${pageContext.request.method}<br>
 
 Init (context) param magic is ${initParam.magic}<br>
+<br>
+<b>Roll the dice!! You got ${mine:rollIt()}</b>
 <br>
 </body></html>
