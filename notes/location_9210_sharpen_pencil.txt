@@ -1,0 +1,21 @@
+String num = "2";
+request.setAttribute("num", num);
+Integer i = new Integer(3);
+request.setAttribute("integer", i);
+java.util.ArrayList list = new java.util.ArrayList();
+list.add("true");
+list.add("false");
+list.add("2");
+list.add("10");
+request.setAttribute("list", list);
+
+What is the output for
+
+* ${num > 3) - 
+* ${integer le 12}
+* ${requestScope["integer"] ne 4 and 6 le num || false}
+* ${list[0] || list["1"] and true
+* ${num < integer}
+* ${num == integer - 1}
+* ${myDog.name = true}
+* ${42 div 0}
