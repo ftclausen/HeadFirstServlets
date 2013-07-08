@@ -1,9 +1,13 @@
 <%@ taglib prefix="mine" uri="DiceFunctions"%>
-<%@ include file="header.jsp"%>
-
-<jsp:include page="header-standard-action.jsp" />
-
 <html><body>
+<%@ include file="header.jsp"%><br>
+
+<jsp:include page="header-standard-action.jsp" >
+    <jsp:param name="subTitle" value="Passed in from main JSP"/>
+</jsp:include>
+
+<br>
+
 
 As dollar person.name : ${person.name} <br>
 As person.name with square brackets : ${person["name"]} <br>

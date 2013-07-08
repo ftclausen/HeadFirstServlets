@@ -1,2 +1,3 @@
-<b>this is from a standard action</b>
+<b>this is from a standard action (sub title = ${param.subTitle} </b><br>
+
 
