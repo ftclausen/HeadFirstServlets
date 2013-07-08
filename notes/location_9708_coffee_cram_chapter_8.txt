@@ -1,0 +1,44 @@
+1. CE
+2. AC
+3. B
+<taglib>
+    <uri>
+        <function>
+            <name>
+            <function-class>
+            <function-signature>
+4. C
+
+jspUseBean
+<jsp:useBean id="theId" class="example.com" scope="request"/>
+
+context params = initParam
+
+5. A
+
+<jsp:forward page="/bla" />
+
+6. ABDF
+
+7. BCEF
+
+Unsure CF
+
+8. A
+
+9. B
+
+param = first instance of parameter
+paramValues = list of all instances
+
+10. BCDEG
+
+11. CE
+
+12. AC
+
+13. E
+
+14. C
+
+15. CF

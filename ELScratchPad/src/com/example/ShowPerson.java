@@ -25,6 +25,9 @@ public class ShowPerson extends HttpServlet {
         String[] genreList = {"Surf", "Ambient"};
         request.setAttribute("genres", genreList);
         request.setAttribute("person", p);
+        MyBean mb = new MyBean();
+        mb.setThings();
+        request.setAttribute("mybean", mb);
 
         Person p2 = new Person();
         p2.setName("Leelu");
