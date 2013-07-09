@@ -1,44 +1,54 @@
-1. CE
-2. AC
-3. B
+1. CE WRONG [AC]
+2. AC WRONG [C only] A is arithmatic
+3. B CORRECT
 <taglib>
     <uri>
         <function>
             <name>
             <function-class>
             <function-signature>
-4. C
+4. C CORRECT
 
 jspUseBean
 <jsp:useBean id="theId" class="example.com" scope="request"/>
 
 context params = initParam
 
-5. A
+5. A CORRECT
 
 <jsp:forward page="/bla" />
 
-6. ABDF
+6. ABDF WRONG [BD only] READ QUESTION! A is wrong as Java variables can't be just numbers. F is wrong as you can't add to a string (silly!)
 
-7. BCEF
+7. BCEF WRONG [BCF only] E is incorrect cause you need to quote dashed names when using the dot operator
 
 Unsure CF
 
-8. A
+8. A CORRECT
 
-9. B
+9. B CORRECT
 
 param = first instance of parameter
 paramValues = list of all instances
 
-10. BCDEG
+10. BCDEG [No C] C is incorrect cause page context is not a map AND does not have a "foo" property
 
-11. CE
+11. CE [DE] C scope is optional and defaults to page.
 
-12. AC
+12. AC [C only] Read question *dynamic* include
 
-13. E
+13. E CORRECT
 
-14. C
+14. C NOT valid since you cannot access "WEB-INF"
 
-15. CF
+15. CF CORRECT
+
+16. B CORRECT
+
+17. AC CORRECT 
+
+18. C CORRECT 
+
+19. BC [B only]
+
+20. C [ALSO D] You could also write a script

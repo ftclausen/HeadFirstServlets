@@ -8,7 +8,6 @@
 
 <br>
 
-
 As dollar person.name : ${person.name} <br>
 As dollar person["name"] : ${person["name"]} <br>
 As dollar person[name] : ${person[name]} <br>
