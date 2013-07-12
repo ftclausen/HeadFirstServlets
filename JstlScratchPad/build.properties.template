@@ -1,0 +1,5 @@
+app.name=@@APP_NAME@@
+catalina.home=@@CATALINA_HOME@@
+manager.username=fred
+manager.password=rooibos
+build.sysclasspath=last
