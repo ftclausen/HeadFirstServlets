@@ -28,10 +28,13 @@ public class AllTheThings extends HttpServlet {
             request.getParameter("food").equalsIgnoreCase("")) {
             food = "default dessert";
         }
-            
+
+        Map<String, String> myMap = new HashMap<String, String>();
+        myMap.put("servletEntry", "servletValue");
         request.setAttribute("movies", movies);
         request.setAttribute("tip", tip);
         request.setAttribute("food", food);
+        request.setAttribute("myMap", myMap);
         RequestDispatcher view = request.getRequestDispatcher("ShowAllTheThings.jsp");
         view.forward(request, response);
     }

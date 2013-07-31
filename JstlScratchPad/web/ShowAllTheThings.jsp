@@ -18,6 +18,16 @@ Movie List!
     </c:forEach>
 </table>
 
+<p>before using c:set to add an extra item to the myMap map</p>
+<c:forEach var="entry" items="${myMap}">
+    <c:out value="${entry.key}"/> -&gt;  <c:out value="${entry.value}"/><br>
+</c:forEach>
+<p>after using c:set to add an extra item to the myMap map</p>
+<c:set target="${myMap}" property="autoAdded" value="so smart!"/>
+<c:forEach var="entry" items="${myMap}">
+    <c:out value="${entry.key}"/> -&gt;  <c:out value="${entry.value}"/><br>
+</c:forEach>
+
 <p>you chose food ${food}</p>
 
 <c:choose>
