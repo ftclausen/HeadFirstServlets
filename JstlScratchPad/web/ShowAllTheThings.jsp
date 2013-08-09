@@ -24,9 +24,18 @@ Movie List!
 </c:forEach>
 <p>after using c:set to add an extra item to the myMap map</p>
 <c:set target="${myMap}" property="autoAdded" value="so smart!"/>
+<c:set target="${myMap}" property="autoAdded2" value="so smart! 2"/>
 <c:forEach var="entry" items="${myMap}">
     <c:out value="${entry.key}"/> -&gt;  <c:out value="${entry.value}"/><br>
 </c:forEach>
+
+<p>after using c:set with null to remove the map "autoAdded2"</p>
+<c:set target="${myMap}" property="autoAdded2"/>
+<c:forEach var="entry" items="${myMap}">
+    <c:out value="${entry.key}"/> -&gt;  <c:out value="${entry.value}"/><br>
+</c:forEach>
+
+<p> Brackets "<c:out value="${myMap['autoAdded']}" />"  </p>
 
 <p>you chose food ${food}</p>
 
