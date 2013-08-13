@@ -1,0 +1,17 @@
+Include Directive
+-----------------
+
+<%@ include file="header.html"%>
+
+Include Standard Action
+-----------------------
+
+<jsp:include page="header.jsp" />
+
+JSTL Tag
+--------
+
+This is more dynamtic e.g. you can define the URL at
+run time (can be a URL outside the container)  -
+
+<c:import url="http://example.com/header.html"/>

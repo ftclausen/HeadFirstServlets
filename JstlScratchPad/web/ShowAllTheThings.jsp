@@ -30,7 +30,9 @@ Movie List!
 </c:forEach>
 
 <p>after using c:set with null to remove the map "autoAdded2"</p>
-<c:set target="${myMap}" property="autoAdded2"/>
+<%-- <c:set target="${myMap}" property="autoAdded2"/> --%>
+<c:remove var="${myMap}"/>
+
 <c:forEach var="entry" items="${myMap}">
     <c:out value="${entry.key}"/> -&gt;  <c:out value="${entry.value}"/><br>
 </c:forEach>
